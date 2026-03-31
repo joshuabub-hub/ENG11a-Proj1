@@ -17,40 +17,36 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
         <style>
-            /* Project page local styles: modular sections and small-section theme */
-            .project-section .card-body { padding: 2rem; }
-            .project-section .section-title { font-size: 1.125rem; font-weight: 700; margin-bottom: .75rem; }
-            .project-section.small .section-title { color: var(--bs-secondary); }
-            .project-section.small .card { background-color: rgba(var(--bs-secondary-rgb), 0.06); }
-            .project-section + .project-section { margin-top: 1.5rem; }
-            .wide-media {
-                width: min(96vw, 1500px);
-                margin-left: 50%;
-                transform: translateX(-50%);
+            .project-link-btn {
+                display: inline-block;
+                padding: 0.6rem 1rem;
+                border-radius: 0.65rem;
+                border: 1px solid rgba(var(--bs-primary-rgb), 0.35);
+                background: #fff;
+                color: var(--bs-primary);
+                text-decoration: none;
+                box-shadow: 0 3px 10px rgba(0,0,0,.08);
+                transform: translateY(0);
+                transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease, border-color .2s ease;
             }
-            /* Storyboard carousel */
-            #storyboardCarousel { position: relative; }
-            #storyboardCarousel .carousel-inner { border-radius: 0.75rem; border: 3px solid #fff; box-shadow: 0 12px 30px rgba(0,0,0,.28); overflow: hidden; }
-            #storyboardCarousel .carousel-item img { transition: opacity .4s ease-in-out; display: block; width: 100%; height: auto; cursor: pointer; }
-            .storyboard-hint {
-                position: absolute;
-                inset: 0;
-                z-index: 3;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                pointer-events: none;
-                color: #fff;
-                font-weight: 600;
-                letter-spacing: 0.01em;
-                text-align: center;
-                padding: 1rem;
-                background: linear-gradient(to bottom, rgba(0,0,0,0.12), rgba(0,0,0,0.32));
-                text-shadow: 0 2px 10px rgba(0,0,0,0.45);
-                opacity: 0;
-                transition: opacity .45s ease;
+            .project-link-btn:hover,
+            .project-link-btn:focus-visible {
+                background: rgba(var(--bs-primary-rgb), 0.06);
+                border-color: rgba(var(--bs-primary-rgb), 0.55);
+                box-shadow: 0 9px 20px rgba(0,0,0,.16);
+                transform: translateY(-3px);
+                text-decoration: none;
             }
-            .storyboard-hint.is-visible { opacity: 1; }
+            .project-link-btn:active {
+                transform: translateY(-1px);
+                box-shadow: 0 5px 12px rgba(0,0,0,.14);
+            }
+            .project-link-btn-lg {
+                font-size: 1.4rem;
+                font-weight: 700;
+                padding: 1rem 2.5rem;
+                border-radius: 0.85rem;
+            }
         </style>
     </head>
     <body class="d-flex flex-column h-100 bg-light">
@@ -63,7 +59,6 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
                             <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                            <!--li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li-->
                             <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
                             <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                         </ul>
@@ -71,216 +66,15 @@
                 </div>
             </nav>
             <!-- Page Content-->
-            <div class="container px-5 my-5">
-                <div class="text-center mb-5">
-                    <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Design Project: Peltier-Cooled Diffusion Cloud Chamber</span></h1>
-                </div>
-                <div class="row gx-5 justify-content-center">
-                    <div class="col-lg-11 col-xl-9 col-xxl-8">
-                        <!-- Project 5 structured sections -->
-                        <section>
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <h2 class="text-primary fw-bolder mb-0">Project 5</h2>
-                            </div>
-
-                            <!-- Project Overview -->
-                            <div class="project-section">
-                                <div class="card shadow border-0 rounded-4 mb-4">
-                                    <div class="card-body">
-                                        <div class="section-title">Project Overview</div>
-                                        <div>This project focuses on a Peltier-cooled diffusion cloud chamber intended to function as an educational teaching tool. Rather than serving only as a device demonstration, the chamber is meant to create a classroom experience in which students can directly observe evidence of ionizing radiation and connect that observation to a physical reality.
-My team and I chose this direction because particle physics can feel unintuitive, uninteresting, and difficult to access when students are asked to imagine a phenomenon they cannot normally sense. Making radiation tracks visible to the human eye offers a more concrete way to introduce the topic and gives students a reason to observe, question, and discuss what they are seeing. The overall hope is that it inspires students to explore the fascinating world of particle physics further.
-</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Preserve existing image cards (left as-is for now) -->
-                            <div class="card shadow border-0 rounded-4 mb-5">
-                                <img class="img-fluid w-100 rounded-top-4" src="assets/cloudchamber.png" alt="Cloud chamber in action" />
-                                <div class="card-body">
-                                    <div>Example cloud chamber in action.</div>
-                                </div>
-                            </div>
-                            <!-- Problem Statement (small themed) -->
-                            <div class="project-section small">
-                                <div class="card shadow border-0 rounded-4 mb-4">
-                                    <div class="card-body">
-                                        <div class="section-title">Problem Statement</div>
-                                        <div>This project addresses a common issue regarding certain academia, being the lack of a compact, consistent, and educationally valuable way to help students visualize non-intuitive topics. This can range from a topic within anthropology to that of our focus, physics. Our project will visualize the passage of ionizing radiation in the atmosphere, here, on Brandeis's campus. The goal is to develop a device, an electron cloud chamber, that makes an invisible phenomenon visible. We hope to make this topic more accessible by presenting it in a form that supports classroom teaching, discussion, and conceptual understanding.</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Background Framing -->
-                            <div class="project-section">
-                                <div class="card shadow border-0 rounded-4 mb-4">
-                                    <div class="card-body">
-                                        <div class="section-title">Background Framing</div>
-                                        <div>Our approach for the project is framed around the diffusion cloud chamber, rather than around detection alone. The chamber works by creating a supersaturated alcohol vapor to flood the enclosed atmosphere. Within the chamber will be a great temperature differential between the top and surface of the base. That temperature gradient creates the sensitive region where particle tracks become visible. In general, the idea is about visualization, but for those interested in the physical phenomena, the trails are visible because a charged particle passes through a supersaturated alcohol vapor in the cloud chamber and ionizes the gas along its path. The vapor then condenses onto those ions, forming tiny droplets. Those droplets line up where the particle traveled, so you can see a visible trail of exactly that particle's path. For the basic educational demonstration, natural background radiation should be enough to create visible trails, meaning nothing special needs to be placed inside the chamber for the core effect to appear. However, I have included an image below, which is a representation of what happens when something of greater emission is placed inside the chamber.
-The emphasis is on the chamber as an educational system rather than as an isolated piece of hardware. The value of the demonstration comes from allowing students to see direct visual proof that atmospheric radiation exists, notice that different particle tracks may appear different, and begin asking what is visible, what can be inferred, and what still cannot be directly seen. This can give rise to questions regarding how we can alter these paths, how to induce a longer path, as well as the limitations of the device. That is how we plan to balance educational value with consistency, accessibility, and usability.
-</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- User Profile -->
-                            <div class="project-section">
-                                <div class="card shadow border-0 rounded-4 mb-4">
-                                    <div class="card-body">
-                                        <div class="section-title">User Profile</div>
-                                        <div>The primary users are a physics instructor or professor who is struggling to introduce students to ionizing radiation in a way that feels concrete rather than purely abstract. As well as the students themselves, the idea is that they can come to conclusions and form hypotheses about this abstract concept independently using the device.
-The secondary users are physics majors. Although they could benefit from the demonstration, this is mainly a focus on helping those who cannot visualize the invisible; therefore, a physics major studying these concepts might already have a good idea of the abstract in a concrete form. However, as mentioned, the device can still benefit these individuals as they, too, cannot often see these phenomena with the human eye.
-The educational goal is to help students see, ask questions, build interest, and connect what they observe to physical reality.
-The chamber will teach students to make observations of the now visible particles and convert those observations into understanding, rather than overwhelm users with engineering details and the complex underlying quantum mechanics.
-</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Problem Definition and Brainstorming -->
-                            <div class="project-section">
-                                <div class="card shadow border-0 rounded-4 mb-4">
-                                    <div class="card-body">
-                                        <div class="section-title">Problem Definition and Brainstorming</div>
-                                        <div>One major challenge is creating interest in something that students cannot normally sense and connecting this topic to the idea of accessibility for all users.
-The project has to balance functionality, portability, consistency, aesthetics, and educational value.
-Another hurdle is the balance between system autonomy and the amount of interaction users should have. Ideally, we want the users' focus to be on the chamber, not the controls. Our plan is to build the device with a simple plug-and-play interface.
-The chamber also raises the question of showing versus explaining. Although we want to show the user this phenomenon, they will not always understand what the importance is. As the builders, we will add an interface that briefly introduces the user to the concepts we hope to convey.
-Mathematics and physical law both need to be incorporated in a way that feels meaningful rather than forced. In general, we can approach this from a fabrication standpoint alone with zero quantitative analysis. On the flip side, we can also calculate the amount of voltage necessary, coupled with the efficiency of the heat sink, without forgetting the impact of density of saturation...and very quickly we lose sight of our original intent. This fine line between over-explaining and educational substance will have to be addressed carefully and presented with the user in mind as someone not currently familiar with the concepts.
-</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card shadow border-0 rounded-4 mb-5">
-                                <img class="img-fluid w-100 rounded-top-4" src="assets/thegrind.jpeg" alt="Project reference image" />
-                                <div class="card-body">
-                                    <div>Group member brainstorming our problem definition, insight statements, and focus questions.</div>
-                                </div>
-                            </div>
-                            <!-- Design Theme Summary (small themed) -->
-                            <div class="project-section small">
-                                <div class="card shadow border-0 rounded-4 mb-4">
-                                    <div class="card-body">
-                                        <div class="section-title">Design Theme Summary</div>
-                                        <div>Broader themes I mentioned that will be present in the project include accessibility to the invisible, educational value, portability, consistency within the device, autonomy balanced with user interaction, and deeper scientific explanation beyond spectacle without over-explaining to an uninformed audience.</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Insight Statements -->
-                            <div class="project-section">
-                                <div class="card shadow border-0 rounded-4 mb-4">
-                                    <div class="card-body">
-                                        <div class="section-title">Insight Statements</div>
-                                        <div>Students struggle to engage with ionizing radiation because it is normally invisible and difficult to connect to everyday experience.
-A successful classroom cloud chamber must do more than function physically; it must also balance cooling performance with portability, consistency, and educational clarity.
-Too much automation may reduce learning, while too much user control may reduce reliability.
-The educational power of the chamber comes not only from showing tracks, but from helping students ask better questions about what those tracks mean.
-The chamber is strong as a teaching tool as it connects direct visual experience to broader academic clarity.
-</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Focus Questions -->
-                            <div class="project-section">
-                                <div class="card shadow border-0 rounded-4 mb-4">
-                                    <div class="card-body">
-                                        <div class="section-title">Focus Questions</div>
-                                        <div>How can we make ionizing radiation visible in a way that feels concrete and captivating to students?
-How might we design a cloud chamber that is compact and portable without sacrificing track visibility and consistency? How does design effect who can use it? Why?
-How might we balance automation with user interaction so the system is reliable but still educational?
-How might we use the chamber not just to show tracks but to prompt deeper discussion of physics concepts and limitations? How do we move students past the "Whoa! Cool" stage into forming hypotheses?
-</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Selected Design Directions (small themed) -->
-                            <div class="project-section small">
-                                <div class="card shadow border-0 rounded-4 mb-4">
-                                    <div class="card-body">
-                                        <div class="section-title">Selected Design Directions</div>
-                                        <div>The selected direction is a Peltier-cooled diffusion cloud chamber designed as an educational teaching tool. I chose this approach because it supports the core goal of making invisible radiation visible while also allowing the project to be built around usability, safety explanation, and conceptual accessibility rather than engineering spectacle alone. At this stage, this should be read as the current direction rather than as a fully finalized design.
-</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                                                        <!-- StoryBoard (carousel) -->
-                                                        <div class="project-section">
-                                                                <div class="card shadow border-0 rounded-4 mb-4 wide-media">
-                                                                        <div class="card-body">
-                                                                                <div class="section-title">Storyboard</div>
-
-                                                                                <div id="storyboardCarousel" class="carousel slide carousel-fade mt-4 mb-3" data-bs-interval="false">
-                                                                                    <div class="carousel-inner">
-                                                                                        <div class="carousel-item active">
-                                                                                            <img src="assets/slide1.png" class="d-block img-fluid" alt="Storyboard Slide 1">
-                                                                                        </div>
-                                                                                        <div class="carousel-item">
-                                                                                            <img src="assets/slide2.png" class="d-block img-fluid" alt="Storyboard Slide 2">
-                                                                                        </div>
-                                                                                        <div class="carousel-item">
-                                                                                            <img src="assets/slide3.png" class="d-block img-fluid" alt="Storyboard Slide 3">
-                                                                                        </div>
-                                                                                        <div class="carousel-item">
-                                                                                            <img src="assets/slide4.png" class="d-block img-fluid" alt="Storyboard Slide 4">
-                                                                                        </div>
-                                                                                        <div class="carousel-item">
-                                                                                            <img src="assets/slide5.png" class="d-block img-fluid" alt="Storyboard Slide 5">
-                                                                                        </div>
-                                                                                        <div class="carousel-item">
-                                                                                            <img src="assets/slide6.png" class="d-block img-fluid" alt="Storyboard Slide 6">
-                                                                                        </div>
-                                                                                        <div class="carousel-item">
-                                                                                            <img src="assets/slide7.png" class="d-block img-fluid" alt="Storyboard Slide 7">
-                                                                                        </div>
-                                                                                        <div class="carousel-item">
-                                                                                            <img src="assets/slide8.png" class="d-block img-fluid" alt="Storyboard Slide 8">
-                                                                                        </div>
-                                                                                        <div class="carousel-item">
-                                                                                            <img src="assets/slide9.png" class="d-block img-fluid" alt="Storyboard Slide 9">
-                                                                                        </div>
-                                                                                        <div class="carousel-item">
-                                                                                            <img src="assets/slide10.png" class="d-block img-fluid" alt="Storyboard Slide 10">
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div id="storyboardHint" class="storyboard-hint" aria-hidden="true">Click the storyboard slides to move through the sequence.</div>
-                                                                                    <button class="carousel-control-prev" type="button" data-bs-target="#storyboardCarousel" data-bs-slide="prev">
-                                                                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                                                                        <span class="visually-hidden">Previous</span>
-                                                                                    </button>
-                                                                                    <button class="carousel-control-next" type="button" data-bs-target="#storyboardCarousel" data-bs-slide="next">
-                                                                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                                                                        <span class="visually-hidden">Next</span>
-                                                                                    </button>
-                                                                                </div>
-
-                                                                        </div>
-                                                                </div>
-                                                        </div>
-                        
-                            <!-- Closing Reflection (small themed) -->
-                            <div class="project-section small">
-                                <div class="card shadow border-0 rounded-4 mb-5">
-                                    <div class="card-body">
-                                        <div class="section-title">Closing Reflection</div>
-                                        <div>The larger goal of this project is to make an abstract concept feel more concrete. Particle physics can be difficult to understand when students are asked to imagine a phenomenon they cannot normally see, so the cloud chamber gives them a more direct way to connect observation to the underlying physics. By making ionizing radiation visible in a classroom setting, the project can help turn a difficult topic into something more accessible, discussable, and real.</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            
-
-                            
-
-                        </section>
-                        <!-- Divider spacing -->
-                        <div class="pb-5"></div>
+            <section class="py-5">
+                <div class="container px-5 my-5">
+                    <div class="text-center mb-5">
+                        <h1 class="display-5 fw-bolder mb-3"><span class="text-gradient d-inline">Design Project: Peltier-Cooled Diffusion Cloud Chamber</span></h1>
+                        <p class="lead fw-light mb-4">Select a section to explore the full project content.</p>
+                        <a class="project-link-btn project-link-btn-lg" href="Project5Part1.html">Part One: Problem Definition and Brainstorming</a>
                     </div>
                 </div>
-            </div>
+            </section>
         </main>
         <!-- Footer-->
         <footer class="bg-white py-4 mt-auto">
@@ -301,49 +95,5 @@ How might we use the chamber not just to show tracks but to prompt deeper discus
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                var carouselEl = document.getElementById("storyboardCarousel");
-                if (!carouselEl || !window.bootstrap) return;
-
-                var carousel = bootstrap.Carousel.getOrCreateInstance(carouselEl);
-                var hintEl = document.getElementById("storyboardHint");
-                var hintTimer = null;
-                var wasOutOfView = true;
-
-                carouselEl.querySelectorAll(".carousel-item img").forEach(function (imgEl) {
-                    imgEl.addEventListener("click", function () {
-                        carousel.next();
-                    });
-                });
-
-                if (!hintEl || !("IntersectionObserver" in window)) return;
-
-                var observer = new IntersectionObserver(function (entries) {
-                    entries.forEach(function (entry) {
-                        if (entry.isIntersecting) {
-                            if (!wasOutOfView) return;
-                            wasOutOfView = false;
-
-                            hintEl.classList.add("is-visible");
-                            if (hintTimer) window.clearTimeout(hintTimer);
-                            hintTimer = window.setTimeout(function () {
-                                hintEl.classList.remove("is-visible");
-                            }, 2000);
-                            return;
-                        }
-
-                        wasOutOfView = true;
-                        hintEl.classList.remove("is-visible");
-                        if (hintTimer) {
-                            window.clearTimeout(hintTimer);
-                            hintTimer = null;
-                        }
-                    });
-                }, { threshold: 0.45 });
-
-                observer.observe(carouselEl);
-            });
-        </script>
     </body>
 </html>
