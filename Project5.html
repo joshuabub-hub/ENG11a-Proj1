@@ -47,6 +47,26 @@
                 padding: 1rem 2.5rem;
                 border-radius: 0.85rem;
             }
+            .page-back-btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.35rem;
+                padding: 0.35rem 0.7rem;
+                border-radius: 0.55rem;
+                border: 1px solid rgba(var(--bs-primary-rgb), 0.22);
+                background: rgba(255,255,255,0.8);
+                color: var(--bs-secondary);
+                font-size: 0.9rem;
+                text-decoration: none;
+                transition: background-color .2s ease, color .2s ease, border-color .2s ease;
+            }
+            .page-back-btn:hover,
+            .page-back-btn:focus-visible {
+                background: rgba(var(--bs-primary-rgb), 0.08);
+                border-color: rgba(var(--bs-primary-rgb), 0.38);
+                color: var(--bs-primary);
+                text-decoration: none;
+            }
         </style>
     </head>
     <body class="d-flex flex-column h-100 bg-light">
@@ -68,6 +88,9 @@
             <!-- Page Content-->
             <section class="py-5">
                 <div class="container px-5 my-5">
+                    <div class="mb-3">
+                        <a class="page-back-btn" href="projects.html"><i class="bi bi-arrow-left-short" aria-hidden="true"></i>Back to Projects</a>
+                    </div>
                     <div class="text-center mb-5">
                         <h1 class="display-5 fw-bolder mb-3"><span class="text-gradient d-inline">Design Project: Peltier-Cooled Diffusion Cloud Chamber</span></h1>
                         <p class="lead fw-light mb-4">Select a section to explore the full project content.</p>
